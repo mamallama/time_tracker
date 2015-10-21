@@ -1,1 +1,1 @@
-<![alt text](/app/assets/images/erd.png)
+<![alt text](time_tracker/app/assets/images/erd.png)
