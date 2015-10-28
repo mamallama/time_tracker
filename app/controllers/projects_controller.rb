@@ -18,12 +18,20 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @project.update(project_params)
   end
 
   def destroy
+    @project.destroy
+    respond_to do |format|
+      format.html { redirect_to projects_url, notice: 'Project was deleted.' }
   end
 
   private
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
   def project_params
     params.require(:project).permit(:name, :duration, :developer_id)
   end
