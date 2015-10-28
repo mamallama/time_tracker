@@ -1,0 +1,11 @@
+<%= form_for(@time_entry) do |f| %>
+  <p>Developer:</br>
+    <%= f.collection_select(:developer_id, Developer.all, :id, :name) %> </p>
+  <p>Project:</br>
+    <%= f.collection_select(:project_id, Project.all, :id, :name) %> </p>
+  <p>Date:</br>
+    <%= f.date_field(:created_at) %> </p>
+  <p>Time Spent On Project:</br>
+    <%= f.text_field(:duration)%></p>
+  <%= f.submit :Submit %>
+  <% end %>
