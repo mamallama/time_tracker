@@ -1,0 +1,9 @@
+<tr>
+  <td><%= time_entry.developer.name %></td>
+  <td><%= time_entry.developer.duration %></td>
+  <td><%= time_entry.project.name %></td>
+
+  <td><%= link_to 'Show', time_entry %></td>
+  <td><%= link_to 'Edit', edit_time_entries_path(time_entry) %></td>
+  <td><%= link_to 'Destroy', time_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

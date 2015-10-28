@@ -1,6 +1,8 @@
 class TimeEntriesController < ApplicationController
   before_action :set_time_entry, only: [:show, :edit, :update, :destroy]
+
   def index
+    @time_entries = TimeEntry.all
   end
 
   def new
@@ -22,6 +24,9 @@ class TimeEntriesController < ApplicationController
 
   def destroy
     @time_entry.destroy
+    respond_to do |format|
+      format.html { redirect_to time_entries_url, notice: 'Time entry was deleted.' } #Had to google.
+    end
   end
 
   def show

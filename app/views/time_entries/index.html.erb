@@ -1,4 +1,37 @@
-<h1>List of Time Entries:</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render @time_entries %>
-<% end%>
+<h1>Listing Time Entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Duration</th>
+      <th>Project</th>
+      <th>Developer</th>
+      <th>Date</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @time_entries.each do |time_entry| %>
+      <tr>
+        <td><%= time_entry.duration %></td>
+        <td><%= time_entry.project.name %></td>
+        <td><%= time_entry.developer_id %></td>
+        <td><%= time_entry.date %></td>
+        <td><%= time_entry.created_at %></td>
+        <td><%= time_entry.updated_at %></td>
+        <td><%= link_to 'Show', time_entry %></td>
+        <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>
+        <td><%= link_to 'Destroy', time_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Time entry', new_time_entry_path %>
